@@ -2,31 +2,33 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 h2{
 	text-align: center;
-	/*font-size: 1.25em;*/
 }
-#contenedor{
-	/*position: relative;*/
-	/*padding:10px;*/
-	/*margin: 20px;*/
+
+.contenedor{
 	margin:8px;
 	border:1px solid;
 	background-color: grey;
 }
+
+.title {
+  position: relative;
+  margin-bottom: -10px;
+}
+
 p.title {
 	position:relative;
-	/*left:;*/
 	border:1px solid;
-	width:90px;
+	width:120px;
 	padding: 3px;
 	text-align: center;
 	top:-17px;
-	/*font-size: 1.25em;*/
 	float:right;
-
+  right:-1px;
 }
 
 #title1 {
@@ -43,26 +45,15 @@ p.title {
 
 .content{
 	padding: 0 12px 0 12px;
-	position:relative;
-	/*top:30px;*/
-	clear:right;
-	
+	position: relative;
+	clear: right;
 }
 
 .content p {
 	margin-bottom: 3px;
 	margin-top: -5px;
-	/*overflow: auto;*/
 }
 
-.title {
-	position: relative;
-	margin-bottom: -10px;
-}
-
-.container {
-	/*position:relative;*/
-}
 
 @media (min-width: 992px ){
 	.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
