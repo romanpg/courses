@@ -64,7 +64,6 @@
     var foundItems = new Array();
 
     this.getMatchedMenuItems= function (search){
-      console.log(search);
       var response = $http({
         method: "GET",
         url: "https://davids-restaurant.herokuapp.com/menu_items.json"
@@ -72,6 +71,7 @@
       return response.then(function(result){
         var categories = result.data;
         var menu_items = categories.menu_items
+        foundItems = [];
         for (var i =0 ; i < menu_items.length ; i++) {
           if (menu_items[i].description.search(search) != -1) {
             foundItems.push(menu_items[i]);
