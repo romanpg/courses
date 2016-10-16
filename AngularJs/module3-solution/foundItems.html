@@ -1,0 +1,19 @@
+<table class="table table-striped">
+	<tr>
+    	<th>Short Name</th>
+    	<th>Name</th> 
+    	<th>Description</th>
+    	<th></th>
+    </tr>
+	<tr ng-repeat="item in list.items">
+		<td>{{item.short_name}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td><button ng-click="list.onRemove({index: $index});">Don't want this one!</button></td>
+	</tr>
+	<tr ng-if="list.items.length ==0;">
+		<td colspan="4" class="noFound">Nothing found</td>	
+	</tr>
+
+</table>
+
