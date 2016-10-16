@@ -38,6 +38,10 @@
 
     ctrl.getMatchedMenuItems = function() {
 
+    	if (ctrl.search === ""){
+    		return;
+    	}
+
       var promise = MenuSearchService.getMatchedMenuItems(ctrl.search);
 
       promise.then(function (response) {
