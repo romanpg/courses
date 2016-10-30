@@ -9,7 +9,6 @@ MyInfoController.$inject = ['MenuService','ApiPath'];
 function MyInfoController(MenuService, ApiPath) {
   this.basePath = ApiPath;
   this.user = MenuService.getUser();
-  console.log(this.user);
 
 }
 

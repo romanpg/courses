@@ -13,7 +13,6 @@ function MenuService($http, ApiPath) {
 
   service.setUser = function(user){ 
     user_info = user;
-    console.log(user_info);
   }
 
   service.getUser = function(){
