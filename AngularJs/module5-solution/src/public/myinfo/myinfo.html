@@ -1,0 +1,62 @@
+  <div class="container">
+
+  <h2 id="myinfo-title" class="text-center">User information</h2>
+
+  <div ng-if="myinfoCtrl.user === undefined" class="text-center">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+
+    <div class="row" ng-if="myinfoCtrl.user != undefined">
+
+      <div class="col-sm-6 col-xs-12">
+
+      <h4 id="fav-dish-title">Personal info</h4>
+
+      <table class="table">
+
+      <tr>
+        <td class="col-md-4">First Name</td>
+        <td class="col-md-8">{{myinfoCtrl.user.username}}</td>
+      </tr>
+      <tr>
+        <td class="col-md-4"> Last Name</td>
+        <td class="col-md-8">{{myinfoCtrl.user.lastname}}</td>
+      </tr>
+      <tr>
+        <td class="col-md-4">Email</td>
+        <td class="col-md-8">{{myinfoCtrl.user.email}}</td>
+      </tr>
+      <tr>
+        <td class="col-md-4">Phone Number</td>
+        <td class="col-md-8">{{myinfoCtrl.user.phone}}</td>
+      </tr>
+      </table>   
+      </div>
+
+
+      <div class="menu-item-tile col-sm-6 col-xs-12">
+        <div class="row">
+
+          <h4 id="fav-dish-title">Favourite dish</h4>
+
+          <div class="col-sm-5">
+            <div class="menu-item-photo">
+              <div>{{myinfoCtrl.user.menu.short_name}}</div>
+              <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.user.menu.short_name}}.jpg" alt="{{myinfoCtrl.user.menu.name}}">
+            </div>
+            <div class="menu-item-price">{{myinfoCtrl.user.menu.price_small | currency}}<span> {{myinfoCtrl.user.menu.small_portion_name}}</span> {{myinfoCtrl.user.menu.price_large | currency}} <span>{{myinfoCtrl.user.menu.large_portion_name}}</span></div>
+          </div>
+
+
+          <div class="menu-item-description col-sm-7">
+            <h3 class="menu-item-title">{{myinfoCtrl.user.menu.name}}</h3>
+            <p class="menu-item-details">{{myinfoCtrl.user.menu.description}}</p>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
