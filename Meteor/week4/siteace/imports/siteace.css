@@ -1,0 +1,93 @@
+/* CSS declarations go here */
+.hidden_div{
+	display:none;
+}
+
+.web_item_list {
+	margin-top:20px;
+	border: 1px solid black;
+	padding: 7px;
+	background-color:rgba(0,0,0,0.1);
+	border:1px solid lightgray;
+	border-radius:3px;
+
+}
+
+.title {
+	font-size: 20px;
+}
+
+.web_item_list p span{
+	font-weight: bold;
+}
+
+.web_item_list_detail p span{
+	font-weight: bold;
+}
+
+.js-upvote, .js-upvote:hover{
+	color:green;
+}
+
+.js-downvote, .js-downvote:hover{
+	color:red;
+}
+
+.rating{
+	font-weight: bold;
+	/*font-size: 18px;*/
+}
+
+#post-comm{
+	margin-top: 20px;
+}
+
+#comment {
+    width: 100%;
+}
+
+#btn-comm{
+	float:right;
+	background:#428bca !important;
+    border:lightblue !important;
+    color:white;
+}
+
+#btn-comm:hover{
+    background:#004480 !important;
+}
+
+.comment_list{
+	margin-top:10px;
+	border: 1px dotted black;
+	padding: 5px;
+	border-radius:3px;
+	background-color:rgba(0,0,0,0.1);
+}
+
+.comm_author{
+	float:right;
+
+}
+
+
+#noResults{
+	color:red;
+	font-size: 17px;
+}
+
+.search_item{
+	list-style-type: none; 
+}
+
+#search_list{
+	margin-top: 10px;
+}
+
+.user {
+	font-weight: bold;
+}
+
+.login-button{
+    
+}

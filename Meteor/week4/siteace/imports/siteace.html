@@ -1,0 +1,146 @@
+<head>
+  <title>siteace</title>
+</head>
+
+<body>
+	<!-- navbar  - you will be putting the login functions here -->
+	
+
+	<!-- <div class="container">
+		{{> website_form}}
+		{{> website_list}}
+	</div> -->
+</body>
+
+<template name="ApplicationLayout">
+  {{> yield "navbar"}}
+  <div class="container">
+  {{> yield "search"}}
+  {{> yield "form"}}
+  {{> yield "main"}}
+  </div>
+
+</template>
+
+<template name="navbar">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">
+	        Site Ace
+	      </a>		  
+	    </div>
+	    <p class="login navbar-text navbar-right">{{> loginButtons align="right"}}</p>
+	  </div>
+
+	</nav>	
+</template>
+
+
+<template name="website_form">
+  {{#if currentUser}}
+	<a class="btn btn-default js-toggle-website-form" href="#">
+  		<span class="glyphicon glyphicon-plus" aria-hidden="true"> Add a website</span>
+	</a>
+	 {{/if}}
+	<div id="website_form" class="hidden_div">
+		<form class="js-save-website-form">
+		  <div class="form-group">
+		    <label for="url">Site address</label>
+		    <input type="text" class="form-control" id="url" placeholder="http://www.mysite.com">
+		  </div>
+		  <div class="form-group">
+		    <label for="title">Title</label>
+		    <input type="text" class="form-control" id="title" placeholder="Mysite">
+		  </div>
+		    <div class="form-group">
+		    <label for="description">Description</label>
+		    <input type="text" class="form-control" id="description" placeholder="I found this site really useful for ...">
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</template>
+
+<!-- template that displays several website items -->
+<template name="website_list">
+	{{#each websites}}
+	{{>website_item}}
+	{{/each}}
+</template>
+
+<!-- template that displays individual website entries -->
+<template name="website_item">
+<div class="web_item_list">
+	<p class="title" ><a href="/detail/{{_id}}"><span>{{title}}</span></a></p>
+	<p>
+		<span>Description:</span> {{description}}
+	</p>	
+	<p><span>Created on:</span> {{createdOn}}</p>
+	<a href="#" class="btn btn-default js-upvote">
+		<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+		<span class="rating">{{ratingUp}}</span>
+	</a>
+	<a href="#" class="btn btn-default js-downvote">
+		<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+		<span class="rating">{{ratingDown}}</span>
+	</a>
+	<!-- you will be putting your up and down vote buttons in here! -->
+</div>
+</template>
+
+<template name="detail">
+	<div class="web_item_list_detail">
+	<p class="title" ><a href="{{url}}"><span>{{title}}</span></a></p>
+	<p>
+		<span>Description:</span> {{description}}
+	</p>	
+	<p><span>Comments:</span></p>
+	<ol>
+		{{#each comment}}
+		<li class="comment_list">{{this.com}}<br><br>Published by: <span class="user">{{this.user}}</span> on {{this.date}}</li>
+		
+		{{/each}}
+	</ol>
+	<p><span>Created on:</span> {{createdOn}}</p>
+	<a href="#" class="btn btn-default js-upvote">
+		<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+		<span class="rating">{{ratingUp}}</span>
+	</a>
+	<a href="#" class="btn btn-default js-downvote">
+		<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+		<span class="rating">{{ratingDown}}</span>
+	</a>
+	<br>
+	<div id="post-comm">
+		<h4>Post a comment:</h4>
+		<textarea id="comment" type="text" name="comment" rows="5"></textarea>
+		<br>
+		<button id="btn-comm" class="btn btn-default">Post</button>
+	</div>
+	<!-- you will be putting your up and down vote buttons in here! -->
+</div>
+
+</template>
+
+
+<template name="searchBox">
+	<div class="text-center">
+	Search: 
+    {{> EasySearch.Input index=webIndex }}   
+    <br>
+  	{{#EasySearch.IfInputEmpty index=webIndex}}
+  		<div><br></div>
+  		{{else}}
+  			<ul id="search_list">
+        		{{#EasySearch.Each index=webIndex }}
+            		<li class="search_item"><a href="/detail/{{_id}}"><span>{{title}}</span></a></li>
+        		{{/EasySearch.Each}}
+    		</ul>
+    		{{#EasySearch.IfNoResults index=webIndex}}
+    			<div id=noResults>No results</div>
+  			{{/EasySearch.IfNoResults}}
+	{{/EasySearch.IfInputEmpty}}
+	</div>
+</template>
